@@ -5,156 +5,177 @@
 require_once 'Model.php';
 
 class ModelCompte {
- private $id, $label, $montant, $banque_id, $personne_id;
 
- // pas possible d'avoir 2 constructeurs
- public function __construct($id = NULL, $label = NULL, $montant = NULL, $banque_id = NULL, $personne_id = NULL) {
-  // valeurs nulles si pas de passage de parametres
-  if (!is_null($id)) {
-   $this->id = $id;
-   $this->label = $label;
-   $this->montant = $montant;
-   $this->banque_id = $banque_id;
-   $this->personne_id = $personne_id;
-  }
- }
+    private $id, $label, $montant, $banque_id, $personne_id;
 
- function setId($id) {
-  $this->id = $id;
- }
+    // pas possible d'avoir 2 constructeurs
+    public function __construct($id = NULL, $label = NULL, $montant = NULL, $banque_id = NULL, $personne_id = NULL) {
+        // valeurs nulles si pas de passage de parametres
+        if (!is_null($id)) {
+            $this->id = $id;
+            $this->label = $label;
+            $this->montant = $montant;
+            $this->banque_id = $banque_id;
+            $this->personne_id = $personne_id;
+        }
+    }
 
- function setLabel($label) {
-  $this->label = $label;
- }
+    function setId($id) {
+        $this->id = $id;
+    }
 
- function setMontant($montant) {
-  $this->montant = $montant;
- }
- 
- function setBanqueID($banque_id) {
-  $this->banque_id = $banque_id;
- }
+    function setLabel($label) {
+        $this->label = $label;
+    }
 
- function setPersonneID($personne_id) {
-  $this->personne_id = $personne_id;
- }
+    function setMontant($montant) {
+        $this->montant = $montant;
+    }
 
- function getId() {
-  return $this->id;
- }
+    function setBanqueID($banque_id) {
+        $this->banque_id = $banque_id;
+    }
 
- function getLabel() {
-  return $this->label;
- }
+    function setPersonneID($personne_id) {
+        $this->personne_id = $personne_id;
+    }
 
- function getMontant() {
-  return $this->montant;
- }
- 
- function getBanqueID() {
-  return $this->banque_id;
- }
+    function getId() {
+        return $this->id;
+    }
 
- function getPersonneID() {
-  return $this->person;
- }
- 
- 
+    function getLabel() {
+        return $this->label;
+    }
 
- public static function getOne($label) {
-  try {
-   $database = Model::getInstance();
-   $query = "select p.prenom, p.nom, b.label, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id and b.label=:label";
-   $statement = $database->prepare($query);
-   $statement->execute([
-     'label' => $label
-   ]);
-   $results = $statement->fetchAll(PDO::FETCH_NUM);
-   return $results;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return NULL;
-  }
- }
- 
-// retourne une liste des id
- public static function getAllLabel() {
-  try {
-   $database = Model::getInstance();
-   $query = "select label from compte";
-   $statement = $database->prepare($query);
-   $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-   return $results;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return NULL;
-  }
- }
+    function getMontant() {
+        return $this->montant;
+    }
 
- public static function getMany($query) {
-  try {
-   $database = Model::getInstance();
-   $statement = $database->prepare($query);
-   $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelVin");
-   return $results;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return NULL;
-  }
- }
+    function getBanqueID() {
+        return $this->banque_id;
+    }
 
- public static function getAll() {
-  try {
-   $database = Model::getInstance();
-   $query = "select p.nom, p.prenom, b.label, b.pays, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id";
-   $statement = $database->prepare($query);
-   $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_NUM);
-   return $results;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return NULL;
-  }
- }
+    function getPersonneID() {
+        return $this->person;
+    }
 
- public static function insert($label, $montant) {
-  try {
-   $database = Model::getInstance();
+    public static function getOne($label) {
+        try {
+            $database = Model::getInstance();
+            $query = "select p.prenom, p.nom, b.label, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id and b.label=:label";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                'label' => $label
+            ]);
+            $results = $statement->fetchAll(PDO::FETCH_NUM);
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
 
-   // recherche de la valeur de la clé = max(id) + 1
-   $query = "select max(id) from compte";
-   $statement = $database->query($query);
-   $tuple = $statement->fetch();
-   $id = $tuple['0'];
-   $id++;
+    public static function getAll() {
+        try {
+            $database = Model::getInstance();
+            $query = "select p.nom, p.prenom, b.label, b.pays, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_NUM);
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
 
-   // ajout d'un nouveau tuple;
-   $query = "insert into compte value (:id, :label, :montant)";
-   $statement = $database->prepare($query);
-   $statement->execute([
-     'id' => $id,
-     'label' => $label,
-     'montant' => $montant
-   ]);
-   return $id;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return -1;
-  }
- }
+    public static function getAllFromClient($p_username) {
+        try {
+            $database = Model::getInstance();
+            $query = "select b.label, b.pays, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id and p.login=:personne_login;";
+            $statement = $database->prepare($query);
+            $statement->execute(['personne_login' => $p_username]);
+            $results = $statement->fetchAll(PDO::FETCH_NUM);
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
 
- public static function update() {
-  echo ("ModelVin : update() TODO ....");
-  return null;
- }
+    public static function getAllLabel() {
+        try {
+            $database = Model::getInstance();
+            $query = "select id, label from banque";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_NUM);
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
 
- public static function delete() {
-  echo ("ModelVin : delete() TODO ....");
-  return null;
- }
+    public static function insert($label, $montant, $b_id, $p_username) {
+        try {
+            $database = Model::getInstance();
 
+            // recherche de la valeur de la clé = max(id) + 1
+            $query = "select max(id) from compte";
+            $statement = $database->query($query);
+            $tuple = $statement->fetch();
+            $id = $tuple['0'];
+            $id++;
+
+            $query = "SELECT DISTINCT id FROM personne WHERE login = :p_username";
+            $statement = $database->prepare($query);
+            $statement->execute(['p_username' => $p_username]);
+            $result = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+            $p_id = $result[0];
+
+            // ajout d'un nouveau tuple;
+            $query = "INSERT INTO compte (id, label, montant, banque_id, personne_id) 
+          VALUES (:id, :label, :montant, :banque_id, :personne_id)";
+            $statement = $database->prepare($query);
+            $statement->execute([
+                'id' => $id,
+                'label' => $label,
+                'montant' => $montant,
+                'banque_id' => $b_id,
+                'personne_id' => $p_id
+            ]);
+            return array($id, $label, $montant, $b_id, $p_id);
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return -1;
+        }
+    }
+    
+    public static function getOneLabel($banque_id) {
+        try {
+            $database = Model::getInstance();
+            $query = "select label from banque where id=:id";
+            $statement = $database->prepare($query);
+            $statement->execute(['id'=>$banque_id]);
+            $results = $statement->fetchAll(PDO::FETCH_COLUMN,0);
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
+    public static function update() {
+        echo ("ModelVin : update() TODO ....");
+        return null;
+    }
+
+    public static function delete() {
+        echo ("ModelVin : delete() TODO ....");
+        return null;
+    }
 }
 ?>
 <!-- ----- fin ModelVin -->

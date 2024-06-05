@@ -3,6 +3,7 @@
 <?php
 require ('../controller/ControllerBanque.php');
 require ('../controller/ControllerClient.php');
+require ('../controller/ControllerCompte.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -28,6 +29,11 @@ switch ($action) {
     case "compteReadAll" :
     case "residenceReadAll" :
         ControllerClient::$action();
+        break;
+    case "compteReadAllFromClient" :
+    case "compteCreate" :
+    case "compteCreated" :
+        ControllerCompte::$action();
         break;
 
     // Tache par défaut

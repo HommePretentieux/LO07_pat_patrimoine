@@ -10,7 +10,7 @@ class ControllerClient {
   $results = ModelPersonne::getAllClient();
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/client/viewAllClient.php';
+  $vue = $root . '/app/view/admin/client/viewAllClient.php';
   if (DEBUG)
    echo ("ControllerClient : clientReadAll : vue = $vue");
   require ($vue);
@@ -22,7 +22,7 @@ class ControllerClient {
 
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/client/viewAllAdmin.php';
+  $vue = $root . '/app/view/admin/client/viewAllAdmin.php';
   require ($vue);
  }
 
@@ -32,7 +32,7 @@ class ControllerClient {
 
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/client/viewAllCompte.php';
+  $vue = $root . '/app/view/admin/client/viewAllCompte.php';
   require ($vue);
  }
 
@@ -42,7 +42,7 @@ class ControllerClient {
 
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/client/viewAllResidence.php';
+  $vue = $root . '/app/view/admin/client/viewAllResidence.php';
   require ($vue);
  }
  
