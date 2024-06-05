@@ -22,6 +22,12 @@ switch ($action) {
  case "banqueCreated" :
   ControllerBanque::$action();
   break;
+ case "compteReadAll" :
+  ControllerCompte::$action();
+  break;
+ case "connect" :
+  ControllerPersonne::$action();
+  break;
 
  // Tache par défaut
  default:
