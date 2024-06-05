@@ -108,10 +108,10 @@ class ModelCompte {
  public static function getAll() {
   try {
    $database = Model::getInstance();
-   $query = "select * from compte";
+   $query = "select p.nom, p.prenom, b.label, b.pays, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id";
    $statement = $database->prepare($query);
    $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelBanque");
+   $results = $statement->fetchAll(PDO::FETCH_NUM);
    return $results;
   } catch (PDOException $e) {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
