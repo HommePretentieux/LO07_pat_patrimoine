@@ -169,6 +169,7 @@ class ModelPersonne {
   }
  }
 
+
  public static function update() {
   echo ("ModelVin : update() TODO ....");
   return null;
@@ -179,6 +180,34 @@ class ModelPersonne {
   return null;
  }
 
+// retourne une liste des id
+    public static function getAllClient() {
+        try {
+            $database = Model::getInstance();
+            $query = "select nom, prenom, login, password from personne where statut = 1";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
+    public static function getAllAdmin() {
+        try {
+            $database = Model::getInstance();
+            $query = "select nom, prenom, login, password from personne where statut = 0";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
 }
 ?>
 <!-- ----- fin ModelVin -->

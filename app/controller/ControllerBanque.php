@@ -18,7 +18,7 @@ class ControllerBanque {
   $results = ModelBanque::getAll();
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/banque/viewAll.php';
+  $vue = $root . '/app/view/admin/banque/viewAll.php';
   if (DEBUG)
    echo ("ControllerAdmin : banqueReadAll : vue = $vue");
   require ($vue);
@@ -30,7 +30,7 @@ class ControllerBanque {
 
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/banque/viewLabel.php';
+  $vue = $root . '/app/view/admin/banque/viewLabel.php';
   require ($vue);
  }
 
@@ -41,7 +41,7 @@ class ControllerBanque {
 
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/banque/viewCompte.php';
+  $vue = $root . '/app/view/admin/banque/viewCompte.php';
   require ($vue);
  }
 
@@ -49,7 +49,7 @@ class ControllerBanque {
  public static function banqueCreate() {
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/banque/viewInsert.php';
+  $vue = $root . '/app/view/admin/banque/viewInsert.php';
   require ($vue);
  }
 
@@ -62,7 +62,7 @@ class ControllerBanque {
   );
   // ----- Construction chemin de la vue
   include '../../../config.php';
-  $vue = $root . '/app/view/banque/viewInserted.php';
+  $vue = $root . '/app/view/admin/banque/viewInserted.php';
   require ($vue);
  }
  

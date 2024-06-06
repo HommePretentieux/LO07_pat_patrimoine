@@ -2,6 +2,9 @@
 <!-- ----- debut Router1 -->
 <?php
 require ('../controller/ControllerBanque.php');
+require ('../controller/ControllerClient.php');
+require ('../controller/ControllerCompte.php');
+require ('../controller/ControllerPersonne.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -15,24 +18,34 @@ $action = htmlspecialchars($param["action"]);
 
 // --- Liste des méthodes autorisées
 switch ($action) {
- case "banqueReadAll" :
- case "banqueReadOne" :
- case "banqueReadLabel" :
- case "banqueCreate" :
- case "banqueCreated" :
-  ControllerBanque::$action();
-  break;
- case "compteReadAll" :
-  ControllerCompte::$action();
-  break;
- case "connect" :
-  ControllerPersonne::$action();
-  break;
+    case "banqueReadAll" :
+    case "banqueReadOne" :
+    case "banqueReadLabel" :
+    case "banqueCreate" :
+    case "banqueCreated" :
+        ControllerBanque::$action();
+        break;
+    case "connect" :
+    case "connected" :
+        ControllerPersonne::$action();
+        break;
+    case "clientReadAll" :
+    case "adminReadAll" :
+    case "compteReadAll" :
+    case "residenceReadAll" :
+        ControllerClient::$action();
+        break;
+    case "compteReadAll" :
+    case "compteReadAllFromClient" :
+    case "compteCreate" :
+    case "compteCreated" :
+        ControllerCompte::$action();
+        break;
 
- // Tache par défaut
- default:
-  $action = "adminAccueil";
-  ControllerBanque::$action();
+    // Tache par défaut
+    default:
+        $action = "adminAccueil";
+        ControllerBanque::$action();
 }
 ?>
 <!-- ----- Fin Router1 -->

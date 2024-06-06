@@ -22,21 +22,23 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clients</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="router1.php?action=vinReadAll">Liste des clients</a></li>
-            <li><a class="dropdown-item" href="router1.php?action=vinReadId">Liste des administrateurs</a></li>
-            <li><a class="dropdown-item" href="router1.php?action=vinCreate">Liste des comptes</a></li> 
-            <li><a class="dropdown-item" href="router1.php?action=vinCreate">Liste des résidences</a></li>             
+            <li><a class="dropdown-item" href="router1.php?action=clientReadAll">Liste des clients</a></li>
+            <li><a class="dropdown-item" href="router1.php?action=adminReadAll">Liste des administrateurs</a></li>
+            <li><a class="dropdown-item" href="router1.php?action=compteReadAll">Liste des comptes</a></li> 
+            <li><a class="dropdown-item" href="router1.php?action=residenceReadAll">Liste des résidences</a></li>             
           </ul>
         </li><li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Innovations</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="router1.php?action=vinReadAll">Proposez une fonctionnalité originale</a></li>
             <li><a class="dropdown-item" href="router1.php?action=vinReadId">Proposez une amélioration du code MVC</a></li>
+            <li><a class="dropdown-item" href="router1.php?action=compteReadAllFromClient">Liste de mes comptes</a></li>
+            <li><a class="dropdown-item" href="router1.php?action=compteCreate">Ajouter un nouveau compte</a></li>
           </ul>
         </li><li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="router1.php?action=vinReadAll">Se connecter</a></li>
+            <li><a class="dropdown-item" href="router1.php?action=connect">Se connecter</a></li>
             <li><a class="dropdown-item" href="router1.php?action=vinReadId">S'inscrire</a></li>
             <li><a class="dropdown-item" href="router1.php?action=vinCreate">Se déconnecter</a></li> 
           </ul>
