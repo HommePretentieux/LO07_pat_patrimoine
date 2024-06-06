@@ -3,7 +3,7 @@
 <body>
   <div class="container">
     <?php
-    include 'fragment/fragmentClientMenu.php';
+    include 'fragment/fragmentClientMenu.html';
     include 'fragment/fragmentJumbotron.html';
     ?>
   </div>   

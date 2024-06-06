@@ -16,7 +16,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
       <div class="form-group">
         <input type="hidden" name='action' value='connected'>        
         <label class='w-25' for="id">Login : </label><input type="text" name='login' size='75' placeholder='prénom'> <br/>                          
-        <label class='w-25' for="id">Mot de passe : </label><input type="text" name='mdp' placeholder='*******'> <br/> 
+        <label class='w-25' for="id">Mot de passe : </label><input type="password" name='mdp' placeholder='*******'> <br/> 
       </div>
       <p/>
        <br/> 
