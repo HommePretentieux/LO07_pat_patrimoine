@@ -17,7 +17,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             echo("<ul>");
             echo ("<li>Label = $results[1]</li>");
             echo ("<li>Montant = $results[2]</li>");
-            echo ("<li>Banque = $banque[0]</li>"); 
+            echo ("<li>Banque = $banque[0]</li>");
         } else {
             echo ("<h3>Problème d'insertion du compte</h3>");
         }

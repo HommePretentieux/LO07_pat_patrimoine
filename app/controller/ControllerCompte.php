@@ -17,23 +17,23 @@ class ControllerCompte {
             echo ("ControllerAdmin : banqueReadAll : vue = $vue");
         require ($vue);
     }
-    
+
     public static function compteTransfert() {
         // ----- Construction chemin de la vue
-        $id=$_SESSION['id'];
-        $results= ModelCompte::getAll2($id);
+        $id = $_SESSION['id'];
+        $results = ModelCompte::getAll2($id);
         include '../../../config.php';
         $vue = $root . '/app/view/client/compte/viewTransfert.php';
         if (DEBUG)
             echo ("ControllerAdmin : banqueReadAll : vue = $vue");
         require ($vue);
     }
-    
+
     public static function compteTransferred() {
         // ----- Construction chemin de la vue
-        $montant=$_GET["montant"];
-        $banque1=$_GET["banque1"];
-        $banque2=$_GET["banque2"];
+        $montant = $_GET["montant"];
+        $banque1 = $_GET["banque1"];
+        $banque2 = $_GET["banque2"];
         ModelCompte::makeTransfert($banque1, $banque2, $montant);
         include '../../../config.php';
         $vue = $root . '/app/view/client/compte/viewTransferred.php';
@@ -41,7 +41,6 @@ class ControllerCompte {
             echo ("ControllerAdmin : banqueReadAll : vue = $vue");
         require ($vue);
     }
-    
 
     // Affiche un formulaire pour sélectionner un label qui existe
     public static function banqueReadLabel() {

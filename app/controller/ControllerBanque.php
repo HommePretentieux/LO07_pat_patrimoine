@@ -4,7 +4,7 @@ require_once '../model/ModelCompte.php';
 
 class ControllerBanque {
 
-    // --- page d'acceuil admin
+    // --- Page d'accueil Admin
     public static function adminAccueil() {
         include '../../../config.php';
         echo $root;
@@ -14,6 +14,7 @@ class ControllerBanque {
         require ($vue);
     }
 
+    // --- Page d'accueil Client
     public static function clientAccueil() {
         include '../../../config.php';
         echo $root;
@@ -23,6 +24,7 @@ class ControllerBanque {
         require ($vue);
     }
 
+    // --- Page d'accueil general
     public static function Accueil() {
         include '../../../config.php';
         echo $root;
@@ -52,7 +54,7 @@ class ControllerBanque {
         require ($vue);
     }
 
-    // Affiche un vin particulier (id)
+    // Affiche les compte d'une banque grâce à son label
     public static function banqueReadOne() {
         $banque_label = $_GET['label'];
         $results = ModelCompte::getOne($banque_label);
@@ -63,7 +65,7 @@ class ControllerBanque {
         require ($vue);
     }
 
-    // Affiche le formulaire de creation d'un vin
+    // Affiche le formulaire de creation d'une banque
     public static function banqueCreate() {
         // ----- Construction chemin de la vue
         include '../../../config.php';
@@ -71,7 +73,7 @@ class ControllerBanque {
         require ($vue);
     }
 
-    // Affiche un formulaire pour récupérer les informations d'un nouveau vin.
+    // Affiche un formulaire pour récupérer les informations d'une nouvelle banque
     // La clé est gérée par le systeme et pas par l'internaute
     public static function banqueCreated() {
         // ajouter une validation des informations du formulaire
@@ -85,4 +87,4 @@ class ControllerBanque {
     }
 }
 ?>
-<!-- ----- fin ControllerVin -->
+<!-- ----- fin ControllerBanque -->

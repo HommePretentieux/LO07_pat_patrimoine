@@ -18,7 +18,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 <label class='w-25' for="banque1">Banque de retrait: </label> <br/> <select class="form-control" id='banque1' name='banque1' style="width: 500px">
                     <?php
                     foreach ($results as $compte) {
-                        echo ("<option value=".$compte->getId().">".$compte->getLabel()."</option>");
+                        echo ("<option value=" . $compte->getId() . ">" . $compte->getLabel() . "</option>");
                     }
                     ?>
                 </select>
@@ -26,7 +26,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 <label class='w-25' for="banque2">Banque de dépôt: </label> <br/> <select class="form-control" id='banque2' name='banque2' style="width: 500px">
                     <?php
                     foreach ($results as $compte) {
-                        echo ("<option value=".$compte->getId().">".$compte->getLabel()."</option>");
+                        echo ("<option value=" . $compte->getId() . ">" . $compte->getLabel() . "</option>");
                     }
                     ?>
                 </select>
