@@ -89,13 +89,27 @@ class ModelCompte {
             return NULL;
         }
     }
-
-    public static function getAllFromClient($p_username) {
+    
+     public static function getAll2($id) {
         try {
             $database = Model::getInstance();
-            $query = "select b.label, b.pays, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id and p.login=:personne_login;";
+            $query = "select * FROM compte where personne_id=:id";
             $statement = $database->prepare($query);
-            $statement->execute(['personne_login' => $p_username]);
+            $statement->execute(['id'=>$id]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, 'ModelCompte');
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
+    public static function getAllFromClient($p_id) {
+        try {
+            $database = Model::getInstance();
+            $query = "select b.label, b.pays, c.label, c.montant from compte as c, banque as b, personne as p where c.banque_id = b.id and c.personne_id=p.id and p.id=:personne_id;";
+            $statement = $database->prepare($query);
+            $statement->execute(['personne_id' => $p_id]);
             $results = $statement->fetchAll(PDO::FETCH_NUM);
             return $results;
         } catch (PDOException $e) {
@@ -118,7 +132,7 @@ class ModelCompte {
         }
     }
 
-    public static function insert($label, $montant, $b_id, $p_username) {
+    public static function insert($label, $montant, $b_id, $p_id) {
         try {
             $database = Model::getInstance();
 
@@ -129,11 +143,11 @@ class ModelCompte {
             $id = $tuple['0'];
             $id++;
 
-            $query = "SELECT DISTINCT id FROM personne WHERE login = :p_username";
-            $statement = $database->prepare($query);
-            $statement->execute(['p_username' => $p_username]);
-            $result = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-            $p_id = $result[0];
+            /* $query = "SELECT DISTINCT id FROM personne WHERE login = :p_username";
+              $statement = $database->prepare($query);
+              $statement->execute(['p_username' => $p_username]);
+              $result = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+              $p_id = $result[0]; */
 
             // ajout d'un nouveau tuple;
             $query = "INSERT INTO compte (id, label, montant, banque_id, personne_id) 
@@ -152,15 +166,30 @@ class ModelCompte {
             return -1;
         }
     }
-    
+
     public static function getOneLabel($banque_id) {
         try {
             $database = Model::getInstance();
             $query = "select label from banque where id=:id";
             $statement = $database->prepare($query);
-            $statement->execute(['id'=>$banque_id]);
-            $results = $statement->fetchAll(PDO::FETCH_COLUMN,0);
+            $statement->execute(['id' => $banque_id]);
+            $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
             return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
+    public static function makeTransfert($idFrom, $idTo, $montant) {
+        try {
+            $database = Model::getInstance();
+            $query = "UPDATE `compte` SET montant = montant -:montant WHERE `id` = :idFrom";
+            $statement = $database->prepare($query);
+            $statement->execute(['montant'=>$montant, 'idFrom' => $idFrom]);
+            $query = "UPDATE `compte` SET montant = montant +:montant WHERE `id` = :idTo";
+            $statement = $database->prepare($query);
+            $statement->execute(['montant'=>$montant, 'idTo' => $idTo]);
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;

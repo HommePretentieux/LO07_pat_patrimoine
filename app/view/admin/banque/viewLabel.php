@@ -16,7 +16,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     <form role="form" method='get' action='router1.php'>
       <div class="form-group">
         <input type="hidden" name='action' value='banqueReadOne'>
-        <label for="id">label : </label> <select class="form-control" id='label' name='label' style="width: 100px">
+        <label for="id">label : </label> <select class="form-control" id='label' name='label' style="width: 250px">
             <?php
             foreach ($results as $label) {
              echo ("<option>$label</option>");

@@ -5,6 +5,7 @@ require ('../controller/ControllerBanque.php');
 require ('../controller/ControllerClient.php');
 require ('../controller/ControllerCompte.php');
 require ('../controller/ControllerPersonne.php');
+require ('../controller/ControllerResidence.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -39,12 +40,17 @@ switch ($action) {
     case "compteReadAllFromClient" :
     case "compteCreate" :
     case "compteCreated" :
+    case "compteTransfert" :
+    case "compteTransferred" :
         ControllerCompte::$action();
+        break;
+    case "readAllResidence" :
+        ControllerResidence::$action();
         break;
 
     // Tache par défaut
     default:
-        $action = "adminAccueil";
+        $action = "accueil";
         ControllerBanque::$action();
 }
 ?>

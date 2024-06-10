@@ -1,12 +1,14 @@
 <?php
 require_once '../model/ModelPersonne.php';
 require_once '../model/ModelCompte.php';
+session_start();
 
 class ControllerPersonne {
 
     // --- page d'acceuil admin
     public static function connect() {
         //include 'config.php';
+        session_reset();
         include '../../../config.php';
         echo $root;
         $vue = $root . '/app/view/personne/viewConnect.php';
@@ -23,10 +25,19 @@ class ControllerPersonne {
 
         echo $root;
         if ($results) {
-            $vue = $root . '/app/view/viewClientAccueil.php';
+            $_SESSION['id'] = $results[0]->getId();
+            $_SESSION['nom'] = $results[0]->getNom();
+            $_SESSION['prenom'] = $results[0]->getPrenom();
+            $_SESSION['statut'] = $results[0]->getStatut();
+            if ($_SESSION['statut'] == 1) {
+                $vue = $root . '/app/view/viewClientAccueil.php';
+                require ($vue);
+            } else if ($_SESSION['statut'] == 0) {
+                $vue = $root . '/app/view/viewAdminAccueil.php';
+                require ($vue);
+            }
             if (DEBUG)
                 echo ("ControllerBanque : adminAccueil : vue = $vue");
-            require ($vue);
         } else {
             $vue = $root . '/app/view/personne/viewErrorConnect.php';
             if (DEBUG)
