@@ -23,7 +23,9 @@
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clients</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="router1.php?action=clientReadAll">Liste des clients</a></li>
-                        <li><a class="dropdown-item" href="router1.php?action=adminReadAll">Liste des administrateurs</a></li>             
+                        <li><a class="dropdown-item" href="router1.php?action=adminReadAll">Liste des administrateurs</a></li>
+                        <li><a class="dropdown-item" href="router1.php?action=compteReadAll">Liste des comptes</a></li>
+                        <li><a class="dropdown-item" href="router1.php?action=residenceReadAll">Liste des residences</a></li>
                     </ul>
                 </li><li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Innovations</a>

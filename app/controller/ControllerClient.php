@@ -5,7 +5,7 @@ require_once '../model/ModelResidence.php';
 
 class ControllerClient {
 
-    // --- Liste des banques
+    // --- Liste des clients du site
     public static function clientReadAll() {
         $results = ModelPersonne::getAllClient();
         // ----- Construction chemin de la vue
@@ -16,7 +16,7 @@ class ControllerClient {
         require ($vue);
     }
 
-    // Affiche un formulaire pour sélectionner un label qui existe
+    // --- Liste des aministrateurs du site
     public static function adminReadAll() {
         $results = ModelPersonne::getAllAdmin();
 
@@ -26,7 +26,7 @@ class ControllerClient {
         require ($vue);
     }
 
-    // Affiche un vin particulier (id)
+    // --- Liste des comptes de chaque banque
     public static function compteReadAll() {
         $results = ModelCompte::getAll();
 
@@ -36,7 +36,7 @@ class ControllerClient {
         require ($vue);
     }
 
-    // Affiche le formulaire de creation d'un vin
+    // --- Liste des residences d'un client
     public static function residenceReadAll() {
         $results = ModelResidence::getAll();
 

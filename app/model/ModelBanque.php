@@ -57,19 +57,6 @@ class ModelBanque {
         }
     }
 
-    public static function getMany($query) {
-        try {
-            $database = Model::getInstance();
-            $statement = $database->prepare($query);
-            $statement->execute();
-            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelVin");
-            return $results;
-        } catch (PDOException $e) {
-            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-            return NULL;
-        }
-    }
-
     public static function getAll() {
         try {
             $database = Model::getInstance();
@@ -108,16 +95,6 @@ class ModelBanque {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;
         }
-    }
-
-    public static function update() {
-        echo ("ModelVin : update() TODO ....");
-        return null;
-    }
-
-    public static function delete() {
-        echo ("ModelVin : delete() TODO ....");
-        return null;
     }
 }
 ?>

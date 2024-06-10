@@ -45,6 +45,9 @@ switch ($action) {
         ControllerCompte::$action();
         break;
     case "readAllResidence" :
+    case "readAllOtherResidence":
+    case "ReadOneResidence":
+    case "BoughtResidence":
         ControllerResidence::$action();
         break;
 

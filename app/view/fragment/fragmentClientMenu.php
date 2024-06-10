@@ -23,7 +23,7 @@
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mes résidences</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="router1.php?action=readAllResidence">Liste de mes résidences</a></li>
-                        <li><a class="dropdown-item" href="router1.php?action=vinReadId">Achat d'une nouvelle résidence</a></li>           
+                        <li><a class="dropdown-item" href="router1.php?action=readAllOtherResidence">Achat d'une nouvelle résidence</a></li>           
                     </ul>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mon patrimoine</a>
