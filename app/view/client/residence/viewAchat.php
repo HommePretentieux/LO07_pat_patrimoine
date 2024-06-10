@@ -15,6 +15,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <form role="form" method='get' action='router1.php'>
             <div class="form-group">
                 <input type="hidden" name='action' value='BoughtResidence'> 
+                <input type="hidden" name='label' value='<?php $residence_label ?>'> 
                 <label class='w-25' for="acheteur">Compte de l'acheteur : </label> <br/> <select class="form-control" id='acheteur' name='acheteur' style="width: 500px">
                     <?php
                     foreach ($compte_acheteur as $compte) {

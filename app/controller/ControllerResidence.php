@@ -48,6 +48,7 @@ class ControllerResidence {
         $acheteur = $_GET["acheteur"];
         $vendeur = $_GET["vendeur"];
         ModelCompte::makeTransfert($acheteur, $vendeur, $prix);
+        
         ModelResidence::buyOne($acheteur, $residence_label);
 
         // ----- Construction chemin de la vue
