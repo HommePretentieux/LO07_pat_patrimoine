@@ -76,6 +76,16 @@ class ControllerCompte {
         $vue = $root . '/app/view/client/compte/viewInserted.php';
         require ($vue);
     }
+    
+    public static function compteChoix() {
+        // ajouter une validation des informations du formulaire
+        $id=$_SESSION['id'];
+        $results = ModelCompte::getAll2($id);
+        // ----- Construction chemin de la vue
+        include '../../../config.php';
+        $vue = $root . '/app/view/innovations/viewCompte.php';
+        require ($vue);
+    }
 }
 ?>
 <!-- ----- fin ControllerVin -->

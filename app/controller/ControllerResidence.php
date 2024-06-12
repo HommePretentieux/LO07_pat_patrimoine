@@ -56,6 +56,18 @@ class ControllerResidence {
         $vue = $root . '/app/view/client/residence/viewAchete.php';
         require ($vue);
     }
+    
+     public static function AvailResid() {
+        $id=$_SESSION['id'];
+        $compte_id=$_GET['compte'][0];
+        $results=ModelResidence::getAvailable($id, $compte_id);
+        // ----- Construction chemin de la vue
+        include '../../../config.php';
+        $vue = $root . '/app/view/innovations/viewAllAvail.php';
+        if (DEBUG)
+            echo ("ControllerResidence : readAllResidence : vue = $vue");
+        require ($vue);
+    }
 }
 ?>
 <!-- ----- fin ControllerVin -->

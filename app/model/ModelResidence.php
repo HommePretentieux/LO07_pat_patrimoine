@@ -157,6 +157,20 @@ class ModelResidence {
         }
     }
     
+    public static function getAvailable($id, $id_compte) {
+        try {
+            $database = Model::getInstance();
+            $query = "select r.* from residence as r, personne as p, compte as c where r.personne_id=p.id and p.id!=:id and c.id=:compte_id and r.prix <= c.montant order by r.prix;";
+            $statement = $database->prepare($query); 
+            $statement->execute(['id'=>$id, 'compte_id'=>$id_compte]);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS,'ModelResidence');
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+    
    
 }
 ?>

@@ -29,14 +29,14 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mon patrimoine</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="router1.php?action=banqueReadAll">Bilan de mon patrimoine</a></li>
+                        <li><a class="dropdown-item" href="router1.php?action=patrimoineReadAll">Bilan de mon patrimoine</a></li>
                     </ul>
                 </li>   
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Innovations</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="router1.php?action=vinReadAll">Proposez une fonctionnalité originale</a></li>
-                        <li><a class="dropdown-item" href="router1.php?action=vinReadId">Proposez une amélioration du code MVC</a></li>
+                        <li><a class="dropdown-item" href="router1.php?action=compteChoix">Proposez une fonctionnalité originale</a></li>
+                        <li><a class="dropdown-item" href="router1.php?action=proposition">Proposez une amélioration du code MVC</a></li>
                     </ul>
                 </li><li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>

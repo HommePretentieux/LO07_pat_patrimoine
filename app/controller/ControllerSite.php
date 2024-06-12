@@ -27,9 +27,15 @@ class ControllerSite {
         require ($vue);
     }
 
-    public static function mesPropositions() {
+    public static function pasClient() {
         include 'config.php';
-        $vue = $root . '/public/documentation/mesPropositions.php';
+        $vue = $root . '/app/view/viewPasClient.php';
+        require ($vue);
+    }
+    
+    public static function proposition() {
+        include 'config.php';
+        $vue = $root . '/app/view/viewProposition.php';
         require ($vue);
     }
 }
