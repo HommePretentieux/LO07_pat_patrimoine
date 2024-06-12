@@ -92,10 +92,10 @@ class ModelResidence {
     public static function getAllFromOther($p_id) {
         try {
             $database = Model::getInstance();
-            $query = "select r.label from residence as r, personne as p where r.personne_id=p.id and p.id!=:personne_id order by r.label";
+            $query = "select r.id, r.label, r.ville, r.prix, r.personne_id from residence as r, personne as p where r.personne_id=p.id and p.id!=:personne_id order by r.label";
             $statement = $database->prepare($query);
             $statement->execute(['personne_id' => $p_id]);
-            $results = $statement->fetchAll(PDO::FETCH_COLUMN,0);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS,'ModelResidence');
             return $results;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
@@ -106,7 +106,7 @@ class ModelResidence {
     public static function getVendeurId($r_label) {
         try {
             $database = Model::getInstance();
-            $query = "select p.id from residence as r, personne as p where r.personne_id=p.id and r.label=:residence_label";
+            $query = "select p.id from residence as r, personne as p where r.personne_id=p.id and r.id=:residence_label";
             $statement = $database->prepare($query);
             $statement->execute(['residence_label' => $r_label]);
             $results = $statement->fetchAll(PDO::FETCH_COLUMN,0);
@@ -120,7 +120,7 @@ class ModelResidence {
     public static function getPrixResidence($r_label) {
         try {
             $database = Model::getInstance();
-            $query = "select r.prix from residence as r, personne as p where r.personne_id=p.id and r.label=:residence_label";
+            $query = "select r.prix from residence as r, personne as p where r.personne_id=p.id and r.id=:residence_label";
             $statement = $database->prepare($query);
             $statement->execute(['residence_label' => $r_label]);
             $results = $statement->fetchAll(PDO::FETCH_COLUMN,0);
@@ -145,12 +145,12 @@ class ModelResidence {
         }
     }
     
-    public static function buyOne($idTo, $r_label) {
+    public static function buyOne($idAcheteur, $r_label) {
         try {
             $database = Model::getInstance();
-            $query = "UPDATE residence SET personne_id=:idTo WHERE label=:residence_label;";
-            $statement = $database->prepare($query);
-            $statement->execute(['idTo'=>$idTo, 'residence_label'=>$r_label]);
+            $query = "UPDATE residence SET personne_id=:id WHERE `id`=:label";//"UPDATE 'residence' SET personne_id=:idTo WHERE label=:residence_label;";
+            $statement = $database->prepare($query); 
+            $statement->execute(['id'=>$idAcheteur, 'label'=>$r_label]);
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;

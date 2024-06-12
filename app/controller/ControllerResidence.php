@@ -35,7 +35,6 @@ class ControllerResidence {
         $compte_vendeur = ModelCompte::getAll2($vendeur_id[0]);
         
         $residence_prix = ModelResidence::getPrixResidence($residence_label);
-
         // ----- Construction chemin de la vue
         include '../../../config.php';
         $vue = $root . '/app/view/client/residence/viewAchat.php';
@@ -47,9 +46,10 @@ class ControllerResidence {
         $prix = $_GET["prix"];
         $acheteur = $_GET["acheteur"];
         $vendeur = $_GET["vendeur"];
+        $acheteur_id=$_SESSION["id"];
         ModelCompte::makeTransfert($acheteur, $vendeur, $prix);
         
-        ModelResidence::buyOne($acheteur, $residence_label);
+        ModelResidence::buyOne($acheteur_id, $residence_label);
 
         // ----- Construction chemin de la vue
         include '../../../config.php';

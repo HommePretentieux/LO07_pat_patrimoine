@@ -14,10 +14,10 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <form role="form" method='get' action='router1.php'>
             <div class="form-group">
                 <input type="hidden" name='action' value='ReadOneResidence'>
-                <label for="id">Label : </label> <select class="form-control" id='label' name='label' style="width: 250px">
+                <label for="label">Label : </label> <select class="form-control" id='label' name='label' style="width: 250px">
                     <?php
                     foreach ($results as $label) {
-                        echo ("<option>$label</option>");
+                        echo ("<option value=".$label->getId().">".$label->getLabel()."</option>");
                     }
                     ?>
                 </select>

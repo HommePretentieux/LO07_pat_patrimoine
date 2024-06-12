@@ -14,6 +14,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <!-- ===================================================== -->
         <?php
         echo "L'achat a bien été effectué";
+                echo "$residence_label  -  $prix  -  $acheteur  -  $vendeur  -  $acheteur_id";
+
 
         echo("</div>");
 

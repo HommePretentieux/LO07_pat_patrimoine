@@ -15,7 +15,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         <form role="form" method='get' action='router1.php'>
             <div class="form-group">
                 <input type="hidden" name='action' value='BoughtResidence'> 
-                <input type="hidden" name='label' value='<?php $residence_label ?>'> 
+                <input type="hidden" name='label' value='<?php echo $residence_label; ?>'> 
                 <label class='w-25' for="acheteur">Compte de l'acheteur : </label> <br/> <select class="form-control" id='acheteur' name='acheteur' style="width: 500px">
                     <?php
                     foreach ($compte_acheteur as $compte) {
@@ -40,6 +40,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             <br/> 
             <button class="btn btn-primary" type="submit">Ajouter</button>
         </form>
+
         <p/>
     </div>
     <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
