@@ -89,13 +89,13 @@ class ModelCompte {
             return NULL;
         }
     }
-    
-     public static function getAll2($id) {
+
+    public static function getAll2($id) {
         try {
             $database = Model::getInstance();
             $query = "select * FROM compte where personne_id=:id";
             $statement = $database->prepare($query);
-            $statement->execute(['id'=>$id]);
+            $statement->execute(['id' => $id]);
             $results = $statement->fetchAll(PDO::FETCH_CLASS, 'ModelCompte');
             return $results;
         } catch (PDOException $e) {
@@ -143,12 +143,6 @@ class ModelCompte {
             $id = $tuple['0'];
             $id++;
 
-            /* $query = "SELECT DISTINCT id FROM personne WHERE login = :p_username";
-              $statement = $database->prepare($query);
-              $statement->execute(['p_username' => $p_username]);
-              $result = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-              $p_id = $result[0]; */
-
             // ajout d'un nouveau tuple;
             $query = "INSERT INTO compte (id, label, montant, banque_id, personne_id) 
           VALUES (:id, :label, :montant, :banque_id, :personne_id)";
@@ -186,10 +180,10 @@ class ModelCompte {
             $database = Model::getInstance();
             $query = "UPDATE `compte` SET montant = montant -:montant WHERE `id` = :idFrom";
             $statement = $database->prepare($query);
-            $statement->execute(['montant'=>$montant, 'idFrom' => $idFrom]);
+            $statement->execute(['montant' => $montant, 'idFrom' => $idFrom]);
             $query = "UPDATE `compte` SET montant = montant +:montant WHERE `id` = :idTo";
             $statement = $database->prepare($query);
-            $statement->execute(['montant'=>$montant, 'idTo' => $idTo]);
+            $statement->execute(['montant' => $montant, 'idTo' => $idTo]);
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;

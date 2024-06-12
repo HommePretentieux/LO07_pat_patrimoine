@@ -6,6 +6,7 @@ require ('../controller/ControllerClient.php');
 require ('../controller/ControllerCompte.php');
 require ('../controller/ControllerPersonne.php');
 require ('../controller/ControllerResidence.php');
+require ('../controller/ControllerSite.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -28,6 +29,9 @@ switch ($action) {
         break;
     case "connect" :
     case "connected" :
+    case "register" :
+    case "registered" :
+    case "disconnect" :
         ControllerPersonne::$action();
         break;
     case "clientReadAll" :
@@ -50,11 +54,15 @@ switch ($action) {
     case "BoughtResidence":
         ControllerResidence::$action();
         break;
+    case "accueilAdmin" :
+    case "accueilClient" :
+        ControllerSite::$action();
+        break;
 
     // Tache par défaut
     default:
         $action = "accueil";
-        ControllerBanque::$action();
+        ControllerSite::$action();
 }
 ?>
 <!-- ----- Fin Router1 -->

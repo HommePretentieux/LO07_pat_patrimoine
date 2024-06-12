@@ -4,35 +4,6 @@ require_once '../model/ModelCompte.php';
 
 class ControllerBanque {
 
-    // --- Page d'accueil Admin
-    public static function adminAccueil() {
-        include '../../../config.php';
-        echo $root;
-        $vue = $root . '/app/view/viewAdminAccueil.php';
-        if (DEBUG)
-            echo ("ControllerBanque : adminAccueil : vue = $vue");
-        require ($vue);
-    }
-
-    // --- Page d'accueil Client
-    public static function clientAccueil() {
-        include '../../../config.php';
-        echo $root;
-        $vue = $root . '/app/view/viewClientAccueil.php';
-        if (DEBUG)
-            echo ("ControllerBanque : adminAccueil : vue = $vue");
-        require ($vue);
-    }
-
-    // --- Page d'accueil general
-    public static function Accueil() {
-        include '../../../config.php';
-        echo $root;
-        $vue = $root . '/app/view/viewAccueil.php';
-        echo ("ControllerBanque : adminAccueil : vue = $vue");
-        require ($vue);
-    }
-
     // --- Liste des banques
     public static function banqueReadAll() {
         $results = ModelBanque::getAll();

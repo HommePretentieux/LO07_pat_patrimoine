@@ -86,98 +86,33 @@ class ModelPersonne {
         }
     }
 
-    public static function getOne($nom) {
-        try {
-            $database = Model::getInstance();
-            $query = "select p.prenom, p.nom, b.nom, c.nom, c.prenom from compte as c, banque as b, personne as p where c.statut = b.id and c.login=p.id and b.nom=:nom";
-            $statement = $database->prepare($query);
-            $statement->execute([
-                'nom' => $nom
-            ]);
-            $results = $statement->fetchAll(PDO::FETCH_NUM);
-            return $results;
-        } catch (PDOException $e) {
-            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-            return NULL;
-        }
-    }
-
-// retourne une liste des id
-    public static function getAllNom() {
-        try {
-            $database = Model::getInstance();
-            $query = "select nom from compte";
-            $statement = $database->prepare($query);
-            $statement->execute();
-            $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-            return $results;
-        } catch (PDOException $e) {
-            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-            return NULL;
-        }
-    }
-
-    public static function getMany($query) {
-        try {
-            $database = Model::getInstance();
-            $statement = $database->prepare($query);
-            $statement->execute();
-            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelVin");
-            return $results;
-        } catch (PDOException $e) {
-            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-            return NULL;
-        }
-    }
-
-    public static function getAll() {
-        try {
-            $database = Model::getInstance();
-            $query = "select * from compte";
-            $statement = $database->prepare($query);
-            $statement->execute();
-            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelBanque");
-            return $results;
-        } catch (PDOException $e) {
-            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-            return NULL;
-        }
-    }
-
-    public static function insert($nom, $prenom) {
+    public static function insert($nom, $prenom, $login, $mdp) {
         try {
             $database = Model::getInstance();
 
             // recherche de la valeur de la clé = max(id) + 1
-            $query = "select max(id) from compte";
+            $query = "select max(id) from personne";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $id = $tuple['0'];
             $id++;
 
             // ajout d'un nouveau tuple;
-            $query = "insert into compte value (:id, :nom, :prenom)";
+            $query = "INSERT INTO personne (id, nom, prenom, statut, login, password) 
+          VALUES (:id, :nom, :prenom, 1, :login, :password)";
             $statement = $database->prepare($query);
             $statement->execute([
                 'id' => $id,
                 'nom' => $nom,
-                'prenom' => $prenom
+                'prenom' => $prenom,
+                'login' => $login,
+                'password' => $mdp
             ]);
-            return $id;
+            return array($id, $nom, $prenom, $login, $mdp);
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;
         }
-    }
-
-    public static function update() {
-        echo ("ModelVin : update() TODO ....");
-        return null;
-    }
-
-    public static function delete() {
-        echo ("ModelVin : delete() TODO ....");
-        return null;
     }
 
 // retourne une liste des id
