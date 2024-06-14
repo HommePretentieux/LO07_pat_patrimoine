@@ -20,7 +20,7 @@ class ControllerBanque {
 
     // --- Affiche un formulaire pour sélectionner un label qui existe
     public static function banqueReadLabel() {
-        $results = ModelBanque::getAllLabel();
+        $results = ModelBanque::getAll();
 
         // ----- Construction du chemin de la vue
         include 'config.php';
@@ -31,9 +31,9 @@ class ControllerBanque {
     }
 
     // --- Affiche les comptes d'une banque grâce à son label
-    public static function banqueReadOne() {
-        $banque_label = $_GET['label'];
-        $results = ModelCompte::getOne($banque_label);
+    public static function banqueReadSome() {
+        $banque_id = $_GET['id'];
+        $results = ModelCompte::getSome($banque_id);
 
         // ----- Construction du chemin de la vue
         include 'config.php';

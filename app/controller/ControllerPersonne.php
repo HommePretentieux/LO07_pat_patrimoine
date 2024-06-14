@@ -94,7 +94,7 @@ class ControllerPersonne {
         require ($vue);
     }
 
-    // --- Déconnecte l'utilisateur et reviens à la page d'accueil général
+    // --- Déconnecte l'utilisateur et revient à la page d'accueil général
     public static function disconnect() {
         session_reset();
         

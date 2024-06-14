@@ -47,7 +47,7 @@ class ControllerCompte {
 
     // --- Affiche un formulaire pour récupérer les informations d'un nouveau compte
     public static function compteCreate() {
-        $results = ModelCompte::getAllLabel();
+        $results = ModelBanque::getAll();
         
         // ----- Construction chemin de la vue
         include 'config.php';
@@ -64,7 +64,7 @@ class ControllerCompte {
         $results = ModelCompte::insert(
                         htmlspecialchars($_GET['label']), $_GET['montant'], htmlspecialchars($_GET['banque']), $_SESSION['id']
         );
-        $banque = ModelCompte::getOneLabel($_GET['banque']);
+        $banque = ModelBanque::getOneLabel($_GET['banque']);
         
         // ----- Construction chemin de la vue
         include 'config.php';

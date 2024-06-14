@@ -1,11 +1,9 @@
-
-<!-- ----- debut ModelVin -->
+<!-- ----- debut ModelPersonne -->
 
 <?php
 require_once 'Model.php';
 
 class ModelPersonne {
-
     private $id, $nom, $prenom, $statut, $login, $password;
 
     // pas possible d'avoir 2 constructeurs
@@ -24,23 +22,18 @@ class ModelPersonne {
     function setId($id) {
         $this->id = $id;
     }
-
     function setNom($nom) {
         $this->nom = $nom;
     }
-
     function setPrenom($prenom) {
         $this->prenom = $prenom;
     }
-
     function setStatut($statut) {
         $this->statut = $statut;
     }
-
     function setLogin($login) {
         $this->login = $login;
     }
-
     function setPassword($password) {
         $this->password = $password;
     }
@@ -48,27 +41,23 @@ class ModelPersonne {
     function getId() {
         return $this->id;
     }
-
     function getNom() {
         return $this->nom;
     }
-
     function getPrenom() {
         return $this->prenom;
     }
-
     function getStatut() {
         return $this->statut;
     }
-
     function getLogin() {
         return $this->login;
     }
-
     function getPassword() {
         return $this->password;
     }
 
+    // Vérifie que le nom d'utilisateur et le mot de passe donnés sont dans la BD
     public static function tryConnect($login, $mdp) {
         try {
             $database = Model::getInstance();
@@ -80,24 +69,26 @@ class ModelPersonne {
             ]);
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
             return $results;
+            
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;
         }
     }
 
+    // Insert un nouveau client avec les données entrées dans le formulaire, retourne la liste des nouvelles données de ce client  
     public static function insert($nom, $prenom, $login, $mdp) {
         try {
             $database = Model::getInstance();
 
-            // recherche de la valeur de la clé = max(id) + 1
+            // Recherche de la valeur de la clé = max(id) + 1
             $query = "select max(id) from personne";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $id = $tuple['0'];
             $id++;
 
-            // ajout d'un nouveau tuple;
+            // Ajout d'un nouveau tuple;
             $query = "INSERT INTO personne (id, nom, prenom, statut, login, password) 
           VALUES (:id, :nom, :prenom, 1, :login, :password)";
             $statement = $database->prepare($query);
@@ -109,13 +100,14 @@ class ModelPersonne {
                 'password' => $mdp
             ]);
             return array($id, $nom, $prenom, $login, $mdp);
+            
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;
         }
     }
 
-// retourne une liste des id
+    // Retourne un array contenant tous les clients de la BD
     public static function getAllClient() {
         try {
             $database = Model::getInstance();
@@ -124,12 +116,14 @@ class ModelPersonne {
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
             return $results;
+            
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;
         }
     }
 
+    // Retourne un array contenant tous les administrateurs de la BD
     public static function getAllAdmin() {
         try {
             $database = Model::getInstance();
@@ -138,6 +132,7 @@ class ModelPersonne {
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelPersonne");
             return $results;
+            
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return NULL;
@@ -145,4 +140,5 @@ class ModelPersonne {
     }
 }
 ?>
-<!-- ----- fin ModelVin -->
+
+<!-- ----- fin ModelPersonne -->

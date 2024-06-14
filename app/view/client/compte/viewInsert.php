@@ -20,7 +20,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 <label class='w-25' for="banque">Banque : </label> <br/> <select class="form-control" id='banque' name='banque' style="width: 500px">
                     <?php
                     foreach ($results as $banque) {
-                        echo ("<option value=$banque[0]>$banque[1]</option>");
+                        echo ("<option value=" . $banque->getId() . ">" . $banque->getLabel() . "</option>");
                     }
                     ?>
                 </select>

@@ -1,5 +1,5 @@
-
 <!-- ----- debut Model -->
+
 <?php
 
 class Model extends PDO {
@@ -32,4 +32,5 @@ class Model extends PDO {
     }
 }
 ?>
+
 <!-- ----- fin Model -->

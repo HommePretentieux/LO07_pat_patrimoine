@@ -1,18 +1,18 @@
  
 <!-- ----- debut de la page cave_acceuil -->
-<?php include 'fragment/fragmentHeader.html'; ?>
+<?php include $root . '/app/view/fragment/fragmentHeader.html'; ?>
 <body>
     <div class="container">
         <?php
         if ($_SESSION['statut'] == 0) {
-            include 'fragment/fragmentAdminMenu.php';
+            include $root . '/app/view/fragment/fragmentAdminMenu.php';
         } else if ($_SESSION['statut'] == 1) {
-            include 'fragment/fragmentClientMenu.php';
+            include $root . '/app/view/fragment/fragmentClientMenu.php';
         } else {
-            include 'fragment/fragmentMenu.html';
+            include $root . '/app/view/fragment/fragmentMenu.html';
         }
 
-        include 'fragment/fragmentJumbotron.html';
+        include $root . '/app/view/fragment/fragmentJumbotron.html';
         ?>
 
 
@@ -29,7 +29,7 @@
 
 
     <?php
-    include 'fragment/fragmentFooter.html';
+    include $root . '/app/view/fragment/fragmentFooter.html';
     ?>
 
     <!-- ----- fin de la page cave_acceuil -->

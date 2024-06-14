@@ -15,11 +15,11 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
 
         <form role="form" method='get' action='router1.php'>
             <div class="form-group">
-                <input type="hidden" name='action' value='banqueReadOne'>
-                <label for="id">Label : </label> <select class="form-control" id='label' name='label' style="width: 250px">
+                <input type="hidden" name='action' value='banqueReadSome'>
+                <label for="id">Label : </label> <select class="form-control" id='id' name='id' style="width: 250px">
                     <?php
-                    foreach ($results as $label) {
-                        echo ("<option>$label</option>");
+                    foreach ($results as $element) {
+                        echo ("<option value=" . $element->getId() . ">" . $element->getLabel() . "</option>");
                     }
                     ?>
                 </select>

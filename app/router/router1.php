@@ -22,7 +22,7 @@ $action = htmlspecialchars($param["action"]);
 // --- Liste des méthodes autorisées
 switch ($action) {
     case "banqueReadAll" :
-    case "banqueReadOne" :
+    case "banqueReadSome" :
     case "banqueReadLabel" :
     case "banqueCreate" :
     case "banqueCreated" :

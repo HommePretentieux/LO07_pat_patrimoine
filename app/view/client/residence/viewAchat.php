@@ -33,7 +33,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 </select>
                 
                 <?php
-                echo ("<label class='w-25' for='prix'>Prix : </label> <br/> <input type='number' id ='prix' name='prix' value='$residence_prix[0]'> <br/>");
+                echo ("<label class='w-25' for='prix'>Prix : </label> <br/> <input type='number' id ='prix' name='prix' value='" . $infos['prix'] . "'><br/>");
                 ?>
             </div>
             <p/>

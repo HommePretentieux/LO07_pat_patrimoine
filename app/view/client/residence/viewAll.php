@@ -1,5 +1,5 @@
-
 <!-- ----- début viewAll -->
+
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -23,18 +23,18 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 <?php
                 // La liste des vins est dans une variable $results             
                 foreach ($results as $element) {
-                    printf("<tr><td>%s</td><td>%s</td><td>%s</td></tr>", $element[0],
-                            $element[1],
-                            number_format($element[2], 2, ",", " "));
+                    printf("<tr><td>%s</td><td>%s</td><td>%s</td></tr>", $element->getLabel(),
+                            $element->getVille(), number_format($element->getPrix(), 2, ",", " "));
                 }
                 ?>
             </tbody>
         </table>
-        
+
     </div>
     <?php
     include $root . '/app/view/fragment/fragmentFooter.html';
     ?>
+
     <!------- fin viewAll-->
 
 
