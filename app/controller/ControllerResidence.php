@@ -1,13 +1,17 @@
+<!-- ----- début ControllerResidence -->
+
 <?php
 require_once '../model/ModelResidence.php';
+require_once '../model/ModelCompte.php';
 
 class ControllerResidence {
 
     public static function readAllResidence() {
         $id=$_SESSION['id'];
         $results=ModelResidence::getAllFromClient($id);
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/client/residence/viewAll.php';
         if (DEBUG)
             echo ("ControllerResidence : readAllResidence : vue = $vue");
@@ -17,11 +21,12 @@ class ControllerResidence {
     public static function readAllOtherResidence() {
         $id=$_SESSION['id'];
         $results=ModelResidence::getAllFromOther($id);
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/client/residence/viewAllOther.php';
         if (DEBUG)
-            echo ("ControllerResidence : readAllResidence : vue = $vue");
+            echo ("ControllerResidence : readAllOtherResidence : vue = $vue");
         require ($vue);
     }
     
@@ -35,9 +40,12 @@ class ControllerResidence {
         $compte_vendeur = ModelCompte::getAll2($vendeur_id[0]);
         
         $residence_prix = ModelResidence::getPrixResidence($residence_label);
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/client/residence/viewAchat.php';
+        if (DEBUG)
+            echo ("ControllerResidence : ReadOneResidence : vue = $vue");
         require ($vue);
     }
     
@@ -51,9 +59,11 @@ class ControllerResidence {
         
         ModelResidence::buyOne($acheteur_id, $residence_label);
 
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/client/residence/viewAchete.php';
+        if (DEBUG)
+            echo ("ControllerResidence : BoughtResidence : vue = $vue");
         require ($vue);
     }
     
@@ -61,13 +71,15 @@ class ControllerResidence {
         $id=$_SESSION['id'];
         $compte_id=$_GET['compte'][0];
         $results=ModelResidence::getAvailable($id, $compte_id);
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/innovations/viewAllAvail.php';
         if (DEBUG)
-            echo ("ControllerResidence : readAllResidence : vue = $vue");
+            echo ("ControllerResidence : AvailResid : vue = $vue");
         require ($vue);
     }
 }
 ?>
-<!-- ----- fin ControllerVin -->
+
+<!-- ----- fin ControllerResidence -->

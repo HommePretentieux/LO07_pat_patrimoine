@@ -1,3 +1,5 @@
+<!-- ----- début ControllerClient -->
+
 <?php
 require_once '../model/ModelPersonne.php';
 require_once '../model/ModelCompte.php';
@@ -5,46 +7,54 @@ require_once '../model/ModelResidence.php';
 
 class ControllerClient {
 
-    // --- Liste des clients du site
+    // --- Affiche la liste des clients du site
     public static function clientReadAll() {
         $results = ModelPersonne::getAllClient();
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/client/viewAllClient.php';
         if (DEBUG)
             echo ("ControllerClient : clientReadAll : vue = $vue");
         require ($vue);
     }
 
-    // --- Liste des aministrateurs du site
+    // --- Affiche la liste des aministrateurs du site
     public static function adminReadAll() {
         $results = ModelPersonne::getAllAdmin();
 
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/client/viewAllAdmin.php';
+        if (DEBUG)
+            echo ("ControllerClient : adminReadAll : vue = $vue");
         require ($vue);
     }
 
-    // --- Liste des comptes de chaque banque
+    // --- Affiche la liste de tous les comptes du site
     public static function compteReadAll() {
         $results = ModelCompte::getAll();
 
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/client/viewAllCompte.php';
+        if (DEBUG)
+            echo ("ControllerClient : compteReadAll : vue = $vue");
         require ($vue);
     }
 
-    // --- Liste des residences d'un client
+    // --- Affiche la liste des residences d'un client
     public static function residenceReadAll() {
         $results = ModelResidence::getAll();
 
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/client/viewAllResidence.php';
+        if (DEBUG)
+            echo ("ControllerClient : residenceReadAll : vue = $vue");
         require ($vue);
     }
 }
 ?>
-<!-- ----- fin ControllerVin -->
+
+<!-- ----- fin ControllerClient -->

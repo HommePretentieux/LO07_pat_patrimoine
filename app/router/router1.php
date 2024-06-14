@@ -1,5 +1,5 @@
-
 <!-- ----- debut Router1 -->
+
 <?php
 require ('../controller/ControllerBanque.php');
 require ('../controller/ControllerClient.php');
@@ -73,5 +73,6 @@ switch ($action) {
         ControllerSite::$action();
 }
 ?>
+
 <!-- ----- Fin Router1 -->
 

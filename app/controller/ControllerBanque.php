@@ -1,17 +1,20 @@
+<!-- ----- début ControllerBanque -->
+
 <?php
 require_once '../model/ModelBanque.php';
 require_once '../model/ModelCompte.php';
 
 class ControllerBanque {
 
-    // --- Liste des banques
+    // --- Affiche la liste des banques
     public static function banqueReadAll() {
         $results = ModelBanque::getAll();
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/banque/viewAll.php';
         if (DEBUG)
-            echo ("ControllerAdmin : banqueReadAll : vue = $vue");
+            echo ("ControllerBanque : banqueReadAll : vue = $vue");
         require ($vue);
     }
 
@@ -19,43 +22,54 @@ class ControllerBanque {
     public static function banqueReadLabel() {
         $results = ModelBanque::getAllLabel();
 
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/banque/viewLabel.php';
+        if (DEBUG)
+            echo ("ControllerBanque : banqueReadLabel : vue = $vue");
         require ($vue);
     }
 
-    // --- Affiche les compte d'une banque grâce à son label
+    // --- Affiche les comptes d'une banque grâce à son label
     public static function banqueReadOne() {
         $banque_label = $_GET['label'];
         $results = ModelCompte::getOne($banque_label);
 
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/banque/viewCompte.php';
-        require ($vue);
-    }
-
-    // --- Affiche le formulaire de creation d'une banque
-    public static function banqueCreate() {
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
-        $vue = $root . '/app/view/admin/banque/viewInsert.php';
+        if (DEBUG)
+            echo ("ControllerBanque : banqueReadOne : vue = $vue");
         require ($vue);
     }
 
     // --- Affiche un formulaire pour récupérer les informations d'une nouvelle banque
+    public static function banqueCreate() {
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
+        $vue = $root . '/app/view/admin/banque/viewInsert.php';
+        if (DEBUG)
+            echo ("ControllerBanque : banqueCreate : vue = $vue");
+        require ($vue);
+    }
+    
+    // --- Ajoute une banque à la BD et affiche un message de confirmation
     // --- La clé est gérée par le systeme et pas par l'internaute
     public static function banqueCreated() {
         // ajouter une validation des informations du formulaire
         $results = ModelBanque::insert(
                         htmlspecialchars($_GET['label']), htmlspecialchars($_GET['pays'])
         );
-        // ----- Construction chemin de la vue
-        include '../../../config.php';
+        
+        // ----- Construction du chemin de la vue
+        include 'config.php';
         $vue = $root . '/app/view/admin/banque/viewInserted.php';
+        if (DEBUG)
+            echo ("ControllerBanque : banqueCreated : vue = $vue");
         require ($vue);
     }
 }
 ?>
+
 <!-- ----- fin ControllerBanque -->
