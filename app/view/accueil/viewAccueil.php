@@ -1,4 +1,5 @@
-<!-- ----- debut de la page cave_acceuil -->
+<!-- ----- début de la page d'accueil général -->
+
 <?php include $root . '/app/view/fragment/fragmentHeader.html'; ?>
 <body>
     <div class="container">
@@ -8,12 +9,11 @@
         ?>
     </div>   
 
-
     <?php
     include $root . '/app/view/fragment/fragmentFooter.html';
     ?>
 
-    <!-- ----- fin de la page cave_acceuil -->
+    <!-- ----- fin de la page d'accueil général -->
 
 </body>
 </html>

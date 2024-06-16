@@ -1,5 +1,5 @@
+<!-- ----- début config -->
 
-<!-- ----- debut config -->
 <?php
 // Utile pour le débugage car c'est un interrupteur pour les echos et print_r.
 if (!defined('DEBUG')) {

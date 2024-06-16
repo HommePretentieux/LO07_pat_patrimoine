@@ -1,7 +1,6 @@
+<!-- ----- début fragmentClientMenu -->
 
-<!-- ----- début fragmentCaveMenu -->
-
-<nav class="navbar navbar-expand-lg bg-success fixed-top">
+<nav class="navbar navbar-expand-lg bg-warning fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="router1.php?action=accueil">Siebering-Hospitalier</a>
         <a class="navbar-brand" href="router1.php?action=accueilClient"><?php echo ("| Client | ".$_SESSION['nom'] ." ". $_SESSION['prenom'] . " |");?></a>
@@ -52,5 +51,5 @@
     </div>
 </nav> 
 
-<!-- ----- fin fragmentCaveMenu -->
+<!-- ----- fin fragmentClientMenu -->
 

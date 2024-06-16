@@ -1,5 +1,5 @@
+<!-- ----- début de viewAll pour les résidences des autres clients -->
 
-<!-- ----- début viewAll -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -30,6 +30,6 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     <?php
     include $root . '/app/view/fragment/fragmentFooter.html';
     ?>
-    <!------- fin viewAll-->
+    <!------- fin de viewAll pour les résidences des autres clients -->
 
 

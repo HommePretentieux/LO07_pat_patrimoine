@@ -1,4 +1,4 @@
-<!-- ----- debut ModelResidence -->
+<!-- ----- deéut ModelResidence -->
 
 <?php
 require_once 'Model.php';

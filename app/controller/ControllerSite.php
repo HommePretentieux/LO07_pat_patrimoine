@@ -42,7 +42,7 @@ class ControllerSite {
         
         // ----- Construction du chemin de la vue
         include 'config.php';
-        $vue = $root . '/app/view/accueil/viewPasClient.php';
+        $vue = $root . '/app/view/innovations/viewPasClient.php';
         if (DEBUG)
             echo ("ControllerSite : pasClient : vue = $vue");
         require ($vue);
@@ -61,5 +61,5 @@ class ControllerSite {
 }
 ?>
 
-<!-- ----- début ControllerSite -->
+<!-- ----- fin ControllerSite -->
 

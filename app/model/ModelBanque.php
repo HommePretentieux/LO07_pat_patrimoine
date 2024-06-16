@@ -1,4 +1,4 @@
-<!-- ----- debut ModelBanque -->
+<!-- ----- début ModelBanque -->
 
 <?php
 require_once 'Model.php';

@@ -1,4 +1,4 @@
-<!-- ----- debut ModelPersonne -->
+<!-- ----- début ModelPersonne -->
 
 <?php
 require_once 'Model.php';

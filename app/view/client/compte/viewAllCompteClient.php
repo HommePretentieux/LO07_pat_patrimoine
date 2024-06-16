@@ -1,5 +1,5 @@
+<!-- ----- début de viewAll pour les compte du client -->
 
-<!-- ----- début viewAll -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -36,6 +36,6 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     </div>
     <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 
-    <!-- ----- fin viewAll -->
+    <!-- ----- fin de viewAll pour les compte du client -->
 
 

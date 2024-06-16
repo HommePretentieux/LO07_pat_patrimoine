@@ -1,5 +1,5 @@
+<!-- ----- début de viewAll pour les comptes -->
 
-<!-- ----- début viewAll -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -11,7 +11,11 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         include $root . '/app/view/fragment/fragmentJumbotron.html';
         ?>
 
-        <table class = "table table-striped table-bordered">
+        <br>
+        <h2> Liste des comptes enregistrés sur le site </h2>
+        <br>
+        
+        <table class = "table table-striped table-bordered table-warning">
             <thead>
                 <tr>
                     <th scope = "col">Nom</th>
@@ -24,7 +28,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             </thead>
             <tbody>
                 <?php
-                // La liste des vins est dans une variable $results             
+                // La liste des comptes est dans une variable $results
+                // $element contient le nom et le prenom du client, sa banque et son pays, le nom et le montant du compte
                 foreach ($results as $element) {
                     printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>", $element[0],
                             $element[1],
@@ -36,9 +41,10 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 ?>
             </tbody>
         </table>
+        <br>
     </div>
     <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 
-    <!-- ----- fin viewAll -->
+    <!-- ----- fin de viewAll pour les comptes -->
 
 

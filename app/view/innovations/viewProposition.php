@@ -24,6 +24,7 @@
                 <li> On pourrait automatiser la recherche de données en envoyant un formulaire à l'utilisateur pour qu'il décide des infos que la vue affiche. On lui donnerait le choix entre les différentes classes, et leurs différents attibuts, pour qu'il puisse choisir librement ce qu'il y aura dans le tableau de données</li>
             </ul>
         </div>
+        <br>
     </div>   
 
 

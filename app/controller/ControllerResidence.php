@@ -73,7 +73,7 @@ class ControllerResidence {
     // --- Affiche toutes les résidences n'appartenant pas à un client et pouvant être acheté avec un certain compte
      public static function AvailResid() {
         $id=$_SESSION['id'];
-        $compte_id=$_GET['compte'][0];
+        $compte_id=$_GET['compte'];
         $results=ModelResidence::getAvailable($id, $compte_id);
         
         // ----- Construction du chemin de la vue

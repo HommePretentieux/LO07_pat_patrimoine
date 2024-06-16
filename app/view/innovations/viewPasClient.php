@@ -1,5 +1,5 @@
- 
-<!-- ----- debut de la page cave_acceuil -->
+<!-- ----- début de la page d'accueil d'un administrateur -->
+
 <?php include $root . '/app/view/fragment/fragmentHeader.html'; ?>
 <body>
     <div class="container">
@@ -18,6 +18,7 @@
         <div> <p> Cette fonctionnalité permet au client de regarder quelle(s) résidence(s) il peut acheter avec le compte de son choix. Pour y avoir accès, vous devez vous connecter en tant que client.
             </p>
         </div>
+        <br>
     </div>   
 
 

@@ -1,4 +1,4 @@
-<!-- ----- debut ModelCompte -->
+<!-- ----- début ModelCompte -->
 
 <?php
 require_once 'Model.php';

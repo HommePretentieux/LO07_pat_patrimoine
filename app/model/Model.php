@@ -1,4 +1,4 @@
-<!-- ----- debut Model -->
+<!-- ----- début Model -->
 
 <?php
 

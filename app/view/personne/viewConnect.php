@@ -1,5 +1,4 @@
-
-<!-- ----- début viewInsert -->
+<!-- ----- début viewConnect -->
 
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
@@ -7,26 +6,27 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
 
 <body>
     <div class="container">
+        
         <?php
         include $root . '/app/view/fragment/fragmentMenu.html';
         include $root . '/app/view/fragment/fragmentJumbotron.html';
         ?> 
 
-        <form role="form" method='get' action='router1.php'>
-            <div class="form-group">
+        <form role="form" class='mt-3' method='get' action='router1.php'>
+            <div class="form-group col-4">
                 <input type="hidden" name='action' value='connected'>        
-                <label class='w-25' for="id">Login : </label><input type="text" name='login' size='75' placeholder='prénom'> <br/><br/>                          
-                <label class='w-25' for="id">Mot de passe : </label><input type="password" name='mdp' placeholder='*******'> <br/> 
+                <label class='fw-bold' for="login">Login</label>
+                <input type="text" class='form-control' id='login' name='login' placeholder='prénom'> <br>                          
+                <label class='fw-bold' for="mdp">Mot de passe</label>
+                <input type="password" class='form-control' id='mdp' name='mdp' placeholder='*******'> <br> 
             </div>
-            <p/>
-            <br/> 
-            <button class="btn btn-primary" type="submit">Se connecter</button>
+            <button class="btn btn-warning mb-2" type="submit">Se connecter</button><br>
         </form>
-        <p/>
     </div>
+    
     <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 
-    <!-- ----- fin viewInsert -->
+    <!-- ----- fin viewConnect -->
 
 
 
