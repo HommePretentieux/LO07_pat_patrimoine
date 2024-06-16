@@ -30,7 +30,7 @@ class ControllerBanque {
         require ($vue);
     }
 
-    // --- Affiche les comptes d'une banque grâce à son label
+    // --- Affiche les comptes d'une banque à partir de à son label
     public static function banqueReadSome() {
         $banque_id = $_GET['id'];
         $results = ModelCompte::getSome($banque_id);
