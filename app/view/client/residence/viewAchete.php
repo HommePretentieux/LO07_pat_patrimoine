@@ -1,5 +1,5 @@
+<!-- ----- début viewAchete -->
 
-<!-- ----- début viewInserted -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -10,17 +10,15 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         include $root . '/app/view/fragment/fragmentClientMenu.php';
         include $root . '/app/view/fragment/fragmentJumbotron.html';
         ?>
-        
-        <!-- ===================================================== -->
+       
         <?php
-        echo "L'achat a bien été effectué";
-                echo "r_label : $residence_label  -  prix : $prix  -  a_ : $acheteur  -  v_ $vendeur  -  a_id $acheteur_id";
-
-
-        echo("</div>");
+        echo ("<h3>L'achat a bien été effectué<h3>");
+        echo ("<br>");
+        echo ("</div>");
 
         include $root . '/app/view/fragment/fragmentFooter.html';
         ?>
-        <!-- ----- fin viewInserted -->    
+        
+        <!-- ----- fin viewAchete -->    
 
 

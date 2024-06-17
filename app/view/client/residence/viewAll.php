@@ -11,7 +11,11 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         include $root . '/app/view/fragment/fragmentJumbotron.html';
         ?>
 
-        <table class = "table table-striped table-bordered">
+        <br>
+        <h2> Vos résidences </h2>
+        <br>
+
+        <table class = "table table-striped table-bordered table-warning">
             <thead>
                 <tr>
                     <th scope = "col">Label</th>
@@ -21,7 +25,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             </thead>
             <tbody>
                 <?php
-                // La liste des vins est dans une variable $results             
+                // La liste des résidences est dans une variable $results
+                // $element est une instance de la classe résidence, on peut donc appeler son label, sa ville et son prix
                 foreach ($results as $element) {
                     printf("<tr><td>%s</td><td>%s</td><td>%s</td></tr>", $element->getLabel(),
                             $element->getVille(), number_format($element->getPrix(), 2, ",", " "));
@@ -29,7 +34,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 ?>
             </tbody>
         </table>
-
+        <br>
     </div>
     <?php
     include $root . '/app/view/fragment/fragmentFooter.html';

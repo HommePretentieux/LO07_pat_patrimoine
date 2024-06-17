@@ -41,7 +41,7 @@ class ControllerResidence {
         
         $infos = ModelResidence::getInfos($residence_label);
         $compte_vendeur = ModelCompte::getAll2($infos['id']);
-        $residence_prix = ModelResidence::getPrixResidence($infos['prix']);
+        $residence_prix = $infos['prix'];
         
         // ----- Construction du chemin de la vue
         include 'config.php';

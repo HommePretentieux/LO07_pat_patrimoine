@@ -1,5 +1,4 @@
-
-<!-- ----- début viewInsert -->
+<!-- ----- début viewAchatt -->
 
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
@@ -11,43 +10,41 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         include $root . '/app/view/fragment/fragmentClientMenu.php';
         include $root . '/app/view/fragment/fragmentJumbotron.html';
         ?> 
+        
+        <br>
+        <h2> Achat d'une résidence </h2>
 
-        <form role="form" method='get' action='router1.php'>
-            <div class="form-group">
+        <form role="form" class='mt-3' method='get' action='router1.php'>
+            <div class="form-group col-4">
                 <input type="hidden" name='action' value='BoughtResidence'> 
                 <input type="hidden" name='label' value='<?php echo $residence_label; ?>'> 
-                <label class='w-25' for="acheteur">Compte de l'acheteur : </label>
-                <select class="form-control" id='acheteur' name='acheteur' style="width: 500px">
+                <label class='fw-bold' for="acheteur">Compte de l'acheteur</label>
+                <select class="form-control" id='acheteur' name='acheteur' style="width: 250px">
                     <?php
                     foreach ($compte_acheteur as $compte) {
                         echo ("<option value=" . $compte->getId() . ">" . $compte->getLabel() . "</option>");
                     }
                     ?>
-                </select>
-                
-                <label class='w-25' for="vendeur">Compte du vendeur : </label>
-                <select class="form-control" id='vendeur' name='vendeur' style="width: 500px">
+                </select><br>
+                <label class='fw-bold' for="vendeur">Compte du vendeur</label>
+                <select class="form-control" id='vendeur' name='vendeur' style="width: 250px">
                     <?php
                     foreach ($compte_vendeur as $compte) {
                         echo ("<option value=" . $compte->getId() . ">" . $compte->getLabel() . "</option>");
                     }
                     ?>
-                </select>
+                </select><br>
                 
                 <?php
-                echo ("<label class='w-25' for='prix'>Prix : </label> <br/> <input type='number' id ='prix' name='prix' value='" . $infos['prix'] . "'><br/>");
+                echo ("<label class='fw-bold' for='prix'>Prix</label> <input type='number' class='form-control' id ='prix' name='prix' value='" . $infos['prix'] . "' readonly><br>");
                 ?>
             </div>
-            <p/>
-            <br/> 
-            <button class="btn btn-primary" type="submit">Ajouter</button>
+            <button class="btn btn-warning mb-2" type="submit">Ajouter</button> <br>
         </form>
-
-        <p/>
     </div>
     <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 
-    <!-- ----- fin viewInsert -->
+    <!-- ----- fin viewAchat -->
 
 
 
