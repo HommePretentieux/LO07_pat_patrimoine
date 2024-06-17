@@ -16,7 +16,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             <div class="form-group">
                 <input type="hidden" name='action' value='BoughtResidence'> 
                 <input type="hidden" name='label' value='<?php echo $residence_label; ?>'> 
-                <label class='w-25' for="acheteur">Compte de l'acheteur : </label> <br/> <select class="form-control" id='acheteur' name='acheteur' style="width: 500px">
+                <label class='w-25' for="acheteur">Compte de l'acheteur : </label>
+                <select class="form-control" id='acheteur' name='acheteur' style="width: 500px">
                     <?php
                     foreach ($compte_acheteur as $compte) {
                         echo ("<option value=" . $compte->getId() . ">" . $compte->getLabel() . "</option>");
@@ -24,7 +25,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                     ?>
                 </select>
                 
-                <label class='w-25' for="vendeur">Compte du vendeur : </label> <br/> <select class="form-control" id='vendeur' name='vendeur' style="width: 500px">
+                <label class='w-25' for="vendeur">Compte du vendeur : </label>
+                <select class="form-control" id='vendeur' name='vendeur' style="width: 500px">
                     <?php
                     foreach ($compte_vendeur as $compte) {
                         echo ("<option value=" . $compte->getId() . ">" . $compte->getLabel() . "</option>");

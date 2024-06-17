@@ -1,5 +1,5 @@
+<!-- ----- début viewTransferred -->
 
-<!-- ----- début viewInserted -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -12,12 +12,13 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         ?>
         <!-- ===================================================== -->
         <?php
-        echo "le virement a bien été effectué";
-
+        echo ("<h3> Le virement a bien été effectué </h3>");
+        echo("<br>");
         echo("</div>");
 
         include $root . '/app/view/fragment/fragmentFooter.html';
         ?>
-        <!-- ----- fin viewInserted -->    
+        
+        <!-- ----- fin viewTransferred -->    
 
 

@@ -8,11 +8,14 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
     <div class="container">
         <?php
         include $root . '/app/view/fragment/fragmentClientMenu.php';
-
         include $root . '/app/view/fragment/fragmentJumbotron.html';
         ?>
 
-        <table class = "table table-striped table-bordered">
+        <br>
+        <h2> Liste de vos comptes </h2>
+        <br>
+        
+        <table class = "table table-striped table-bordered table-warning">
             <thead>
                 <tr>
                     <th scope = "col">Banque</th>
@@ -23,7 +26,8 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             </thead>
             <tbody>
                 <?php
-                // La liste des vins est dans une variable $results             
+                // La liste des comptes est dans une variable $results
+                // $element contient la banque dans lequel est inscrit le compte, son pays, son label et son montant
                 foreach ($results as $element) {
                     printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>", $element[0],
                             $element[1],
@@ -33,6 +37,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
                 ?>
             </tbody>
         </table>
+        <br>
     </div>
     <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 

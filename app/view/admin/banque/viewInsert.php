@@ -1,4 +1,4 @@
-<!-- ----- début de la vue affichant le formulaire pour ajouter un banque -->
+<!-- ----- début de viewInsert pour une banque -->
 
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
@@ -18,16 +18,16 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             <div class="form-group col-4">
                 <input type="hidden" name='action' value='banqueCreated'>        
                 <label class='fw-bold' for="label">Label</label>
-                <input type="text" class='form-control' id='label' name='label' value='Banque de smerep'> <br>                          
+                <input type="text" class='form-control' id='label' name='label' placeholder='Banque de smerep' required> <br>                          
                 <label class='fw-bold' for="pays">Pays</label>
-                <input type="text" class='form-control' id='pays' name='pays' value='France'> <br> 
+                <input type="text" class='form-control' id='pays' name='pays' placeholder='France' required> <br> 
             </div>
             <button class="btn btn-warning mb-2" type="submit">Ajouter</button> <br>
         </form>
     </div>
     <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
 
-    <!-- ----- fin viewInsert -->
+    <!-- ----- fin viewInsert pour une banque -->
 
 
 

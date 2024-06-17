@@ -1,4 +1,4 @@
-<!-- ----- début viewInserted -->
+<!-- ----- début viewInserted pour une banque -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -27,6 +27,6 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
         include $root . '/app/view/fragment/fragmentFooter.html';
         ?>
         
-        <!-- ----- fin viewInserted -->    
+        <!-- ----- fin viewInserted pour une banque-->    
 
 

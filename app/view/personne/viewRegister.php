@@ -16,13 +16,13 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             <div class="form-group col-4">
                 <input type="hidden" name='action' value='registered'>
                 <label class='fw-bold' for="nom">Nom</label>
-                <input type="text" class='form-control' id='nom' name='nom' placeholder='Dupont'> <br>
+                <input type="text" class='form-control' id='nom' name='nom' placeholder='Dupont' required> <br>
                 <label class='fw-bold' for="prenom">Prénom</label>
-                <input type="text" class='form-control' id='prenom' name='prenom' placeholder='Jean'> <br>                      
+                <input type="text" class='form-control' id='prenom' name='prenom' placeholder='Jean' required> <br>                      
                 <label class='fw-bold' for="login">Login</label>
-                <input type="text" class='form-control' id='login' name='login' placeholder='jean'> <br>                      
+                <input type="text" class='form-control' id='login' name='login' placeholder='jean' required> <br>                      
                 <label class='fw-bold' for="mdp">Mot de passe</label>
-                <input type="password" class='form-control' id='mdp' name='mdp' placeholder='secret'> <br>
+                <input type="password" class='form-control' id='mdp' name='mdp' placeholder='secret' required> <br>
             </div>
             <button class="btn btn-warning mb-2" type="submit">S'inscrire</button><br>
         </form>

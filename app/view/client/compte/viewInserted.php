@@ -1,5 +1,5 @@
+<!-- ----- début viewInserted pour un compte -->
 
-<!-- ----- début viewInserted -->
 <?php
 require ($root . '/app/view/fragment/fragmentHeader.html');
 ?>
@@ -18,6 +18,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
             echo ("<li>Label = $results[0]</li>");
             echo ("<li>Montant = $results[1]</li>");
             echo ("<li>Banque = $banque[0]</li>");
+            echo ("<br>");
         } else {
             echo ("<h3>Problème d'insertion du compte</h3>");
         }
@@ -26,6 +27,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
 
         include $root . '/app/view/fragment/fragmentFooter.html';
         ?>
-        <!-- ----- fin viewInserted -->    
+        
+        <!-- ----- fin viewInserted pour un compte -->    
 
 
