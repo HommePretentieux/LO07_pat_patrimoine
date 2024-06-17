@@ -13,7 +13,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
 
         <form role="form" class='mt-3' method='get' action='router1.php'>
             <div class="form-group">
-                <input type="hidden" name='action' value='ReadOneResidence'>
+                <input type="hidden" name='action' value='residenceReadOne'>
                 <label class='fw-bold' for="label">Label</label> 
                 <select class="form-control" id='label' name='label' style="width: 250px">
                     <?php

@@ -8,7 +8,7 @@ class ControllerCompte {
     // --- Affiche les comptes de l'utilisateur deux fois pour qu'il puisse transférer de l'argent d'un compte à l'autre
     public static function compteTransfert() {
         $id = $_SESSION['id'];
-        $results = ModelCompte::getAll2($id);
+        $results = ModelCompte::getAllCompteClient($id);
         
         // ----- Construction chemin de la vue
         include 'config.php';
@@ -77,7 +77,7 @@ class ControllerCompte {
     // --- Affiche la liste des compte du client grâce à son id
     public static function compteChoix() {
         $id=$_SESSION['id'];
-        $results = ModelCompte::getAll2($id);
+        $results = ModelCompte::getAllCompteClient($id);
         
         // ----- Construction chemin de la vue
         include 'config.php';

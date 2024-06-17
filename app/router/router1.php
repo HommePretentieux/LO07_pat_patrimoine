@@ -50,11 +50,12 @@ switch ($action) {
     case "compteChoix" :
         ControllerCompte::$action();
         break;
-    case "readAllResidence" :
-    case "readAllOtherResidence":
-    case "ReadOneResidence":
-    case "BoughtResidence":
-    case "AvailResid":
+    case "residenceReadAll" :
+    case "residenceReadAllClient" :
+    case "residenceReadAllOther":
+    case "residenceReadOne":
+    case "residenceBought":
+    case "residenceAvail":
         ControllerResidence::$action();
         break;
     case "accueilAdmin" :

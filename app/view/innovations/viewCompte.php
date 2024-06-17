@@ -14,7 +14,7 @@ require ($root . '/app/view/fragment/fragmentHeader.html');
 
         <form role="form" class='mt-3' method='get' action='router1.php'>
             <div class="form-group col-4">
-                <input type="hidden" name='action' value='AvailResid'>        
+                <input type="hidden" name='action' value='residenceAvail'>        
                 <label class='fw-bold' for="compte">Compte de référence</label>
                 <select class="form-control" id='compte' name='compte' style="width: 500px" required>
                     <?php

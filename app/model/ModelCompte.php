@@ -85,7 +85,7 @@ class ModelCompte {
     }
 
     // Retourne un array contenant tous les comptes d'un client à partir de son id
-    public static function getAll2($id) {
+    public static function getAllCompteClient($id) {
         try {
             $database = Model::getInstance();
             $query = "select * FROM compte where personne_id=:id";

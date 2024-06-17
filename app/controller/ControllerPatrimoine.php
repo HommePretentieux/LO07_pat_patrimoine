@@ -9,7 +9,7 @@ class ControllerPatrimoine {
     // ---Affiche un tableau contenant toutes les pocessions du client (comptes et résidence)
     public static function patrimoineReadAll(){
         $id=$_SESSION['id'];
-        $comptes = ModelCompte::getAll2($id);
+        $comptes = ModelCompte::getAllCompteClient($id);
         $resid = ModelResidence::getAllFromClient($id);
         
         // ----- Construction du chemin de la vue
